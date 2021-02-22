@@ -1,0 +1,20 @@
+1. Установите СУБД MySQL. Создайте в домашней директории файл .my.cnf, задав в нем логин и пароль, который указывался при установке.
+
+В директории C:\Program Files\MySQL\MySQL Server 8.0 создал файл my.cnf:
+[client]
+user=root
+password=gfhjkm
+
+2. Создайте базу данных example, разместите в ней таблицу users, состоящую из двух столбцов, числового id и строкового name.
+
+create database example;
+use example;
+create table users (id int not null primary key AUTO_INCREMENT, name varchar(200));
+
+3. Создайте дамп базы данных example из предыдущего задания, разверните содержимое дампа в новую базу данных sample.
+
+>mysqldump.exe example > g:\tmp\example.sql
+
+mysql>create database sample;
+
+>mysql sample < g:\tmp\example.sql
